@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext"; 
+import axios from 'axios';
 import "../styles/Login.css";
 
 function Login() {
@@ -13,7 +14,7 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth(); 
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     
     // Client side validations
@@ -32,13 +33,18 @@ function Login() {
       password: password
     };
 
-    const isAuthenticated = login(data.email, data.password); 
-  
-    if (isAuthenticated) {
+    try {
+      const response = await axios.post("http://localhost:4000/login", data);
+      const { token } = response.data;
+
+      login(token);
       toast.success("Login Successful!");
-      navigate("/products");
-    } else {
-      toast.error("Invalid Credentials!");
+      navigate('/products');
+    } catch (error) {
+      setErrorMessage(
+        error.response?.data?.message || 'Login failed. Please try again.'
+      );
+      console.log(error);
     }
   };
 
