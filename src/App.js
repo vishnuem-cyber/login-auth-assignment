@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom"; 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import Cart from "./pages/Cart";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  
 
   return (
     <>
