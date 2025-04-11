@@ -100,4 +100,14 @@
 .login-form button:hover:not(:disabled) {
     background-color: #0056b3;
 }
+
+.alert-danger {
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
   

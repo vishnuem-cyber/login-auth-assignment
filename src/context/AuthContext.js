@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (email, password) => {
     // Check for test credentials
-    if (email === "test11@gmail.com" && password === "pass123") {
+    if (email === "test11@gmail.com" && password === "pass1234") {
       setIsLoggedIn(true);
       localStorage.setItem("isLoggedIn", "true");
       return true;
