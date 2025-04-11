@@ -27,7 +27,12 @@ function Login() {
       return;
     }
 
-    const isAuthenticated = login(email, password); 
+    const data = {
+      email: email,
+      password: password
+    };
+
+    const isAuthenticated = login(data.email, data.password); 
   
     if (isAuthenticated) {
       toast.success("Login Successful!");
