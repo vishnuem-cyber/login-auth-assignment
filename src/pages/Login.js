@@ -23,7 +23,6 @@ function Login() {
       toast.error("Invalid Credentials!");
     }
   };
-  
 
   return (
     <div className="login-container">
